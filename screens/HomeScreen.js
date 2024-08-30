@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   const [km, setKm] = useState('');
   const [litros, setLitros] = useState('');
 
   const calcularConsumo = () => {
-    // Verifica se os valores são válidos antes de calcular
     if (!km || !litros || isNaN(km) || isNaN(litros) || parseFloat(litros) === 0) {
       alert('Por favor, insira valores válidos para quilometragem e litros.');
       return;
@@ -36,8 +35,12 @@ export default function HomeScreen({ navigation }) {
             value={litros}
             onChangeText={setLitros}
           />
-          <Button title="Calcular" onPress={calcularConsumo}
-          style={styles.button}/>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={calcularConsumo}
+          >
+            <Text style={styles.buttonText}>Calcular</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -52,17 +55,25 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    resizeMode: 'cover', // Ajusta a imagem para cobrir toda a tela, mantendo a proporção
+    resizeMode: 'cover',
   },
   button: {
-    // aqui vai a estilizacao do botao
+    backgroundColor: 'red', 
+    padding: 15,
+    borderRadius: 10, 
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white', 
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   overlay: {
     flex: 1,
-    justifyContent: 'flex-start', // Alinha os itens ao topo
+    justifyContent: 'flex-start',
     padding: 16,
-    marginTop: 50, // Ajuste este valor para posicionar os elementos conforme desejado
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Transparência para melhor visualização dos textos
+    marginTop: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   label: {
     fontSize: 18,
