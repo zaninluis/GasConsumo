@@ -13,17 +13,17 @@ export default function ResultScreen({ route }) {
   };
 
   const getImageForClassification = (media) => {
-    if (media > 12) return require('../assets/ponteiro_alto.png'); // Imagem para excelente consumo
-    if (media > 8) return require('../assets/ponteiro_medio.png'); // Imagem para consumo regular
-    return require('../assets/ponteiro_baixo.png'); // Imagem para consumo ruim
+    if (media > 12) return require('../assets/ponteiro_alto.png'); 
+    if (media > 8) return require('../assets/ponteiro_medio.png'); 
+    return require('../assets/ponteiro_baixo.png'); 
   };
 
   const getBackgroundColor = (media) => {
-    if (media > 12) return '#6037'; // Verde claro para excelente
-    if (media > 10) return '#c3e6cb'; // Verde para bom
-    if (media > 8) return '#fff3cd'; // Amarelo para regular
-    if (media > 4) return '#f5c6cb'; // Laranja para ruim
-    return '#f8d7da'; // Vermelho para muito ruim
+    if (media > 12) return '#00fa9a'; 
+    if (media > 10) return '#c3e6cb'; 
+    if (media > 8) return '#fff3cd'; 
+    if (media > 4) return '#f5c6cb'; 
+    return '#f8d7da'; 
   };
 
   const mediaClassificacao = classificacaoConsumo(mediaConsumo);
@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 200,
-    height: 200, // Ajuste o tamanho da imagem conforme necessário
+    height: 200, 
     marginTop: 20,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#000', // Cor da borda
+    borderColor: '#000',
   },
 });

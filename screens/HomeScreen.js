@@ -13,13 +13,8 @@ export default function HomeScreen({ navigation }) {
     const mediaConsumo = parseFloat(km) / parseFloat(litros);
     navigation.navigate('Result', { mediaConsumo });
   };
-
   return (
     <View style={styles.container}>
-      <ImageBackground 
-        source={require('../assets/BackgroundImage.png')} 
-        style={styles.background}
-      >
         <View style={styles.overlay}>
           <Text style={styles.label}>Quilometragem (KM):</Text>
           <TextInput 
@@ -35,14 +30,13 @@ export default function HomeScreen({ navigation }) {
             value={litros}
             onChangeText={setLitros}
           />
+
           <TouchableOpacity 
             style={styles.button} 
-            onPress={calcularConsumo}
-          >
+            onPress={calcularConsumo}>
             <Text style={styles.buttonText}>Calcular</Text>
           </TouchableOpacity>
         </View>
-      </ImageBackground>
     </View>
   );
 }
